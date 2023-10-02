@@ -16,9 +16,14 @@ namespace WebApp.Controllers
         [HttpGet(Name = "GenerateLog")]
         public IActionResult Get()
         {
-            _logger.LogInformation("My information log {timeTicks}", DateTime.Now.Ticks);
+            var valFromCode = "ValueFromCode";
 
-            return Ok();
+            _logger.LogDebug("This is a debug message with param {param}", valFromCode);
+            _logger.LogInformation("This is an info message with param {param}", valFromCode);
+            _logger.LogWarning("This is a warning message with param {param}", valFromCode);
+            _logger.LogError(new Exception("My exception message."), "This is an error message with param {param}", valFromCode);
+
+            return Ok("Ok.");
         }
     }
 }
