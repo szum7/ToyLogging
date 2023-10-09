@@ -3,7 +3,7 @@ using NLog.Web;
 using Slin.Masking;
 using Slin.Masking.NLog;
 
-namespace WebApp.OG
+namespace WebApi.OG
 {
     public class ProgramOG
     {

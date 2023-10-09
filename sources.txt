@@ -2,3 +2,5 @@ https://github.com/NLog/NLog/wiki/Configuration-file
 https://code-maze.com/writing-logs-to-sql-server-using-nlog/
 https://www.nuget.org/packages/Slin.Masking
 https://github.com/sw0/Slin.Masking/wiki
+
+https://betterprogramming.pub/how-to-mask-sensitive-data-in-nlog-12a368f13f61

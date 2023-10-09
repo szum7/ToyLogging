@@ -1,0 +1,8 @@
+
+
+            //logger.Warn("This is an email myname@gmail.com");
+            //logger.Error(new Exception("My exception message."), "This is an error message with param {param}", valFromCode);
+
+            //_logger.LogDebug("This is a debug message with param {param}", valFromCode);
+            //_logger.LogInformation("This is an info message with param {param}", valFromCode);
+            //_logger.LogError(new Exception("My exception message."), "This is an error message with param {param}", valFromCode);

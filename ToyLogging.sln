@@ -3,9 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{4107634C-049A-4081-A141-DD22CBFCFF01}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{4107634C-049A-4081-A141-DD22CBFCFF01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{0D61D469-46B1-4AA2-96C1-019B8BD8A90A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "WebApi\WebApi.csproj", "{0D61D469-46B1-4AA2-96C1-019B8BD8A90A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiMaskingSample", "ApiMaskingSample\ApiMaskingSample.csproj", "{AFC455C8-84B8-4AF8-ABE9-3F92AEE426A6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiNLog", "WebApiNLog\WebApiNLog.csproj", "{41E700E5-D292-4BA9-B0DF-1EB9EEF0638D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{3B711F2A-392D-4178-B0BA-6CB631184104}"
+	ProjectSection(SolutionItems) = preProject
+		masking-default.json = masking-default.json
+		safe.txt = safe.txt
+		sources.txt = sources.txt
+		UsefulScripts.sql = UsefulScripts.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +33,14 @@ Global
 		{0D61D469-46B1-4AA2-96C1-019B8BD8A90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D61D469-46B1-4AA2-96C1-019B8BD8A90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D61D469-46B1-4AA2-96C1-019B8BD8A90A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC455C8-84B8-4AF8-ABE9-3F92AEE426A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC455C8-84B8-4AF8-ABE9-3F92AEE426A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC455C8-84B8-4AF8-ABE9-3F92AEE426A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC455C8-84B8-4AF8-ABE9-3F92AEE426A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E700E5-D292-4BA9-B0DF-1EB9EEF0638D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E700E5-D292-4BA9-B0DF-1EB9EEF0638D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E700E5-D292-4BA9-B0DF-1EB9EEF0638D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E700E5-D292-4BA9-B0DF-1EB9EEF0638D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

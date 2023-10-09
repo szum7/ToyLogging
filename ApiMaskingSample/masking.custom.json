@@ -1,0 +1,40 @@
+{
+  "masking": {
+    "MaskJsonNumberEnabled": true,
+    "MaskXmlSerializedEnabled": true,
+    "UrlKeys": [ "requestUrl", "query", "kvpFIEld", "kvpfield", "formdata" ],
+    "SerializedKeys": [ "Body", "RequestBody", "ResponseBody", "reserialize" ],
+    "UrlMaskingPatterns": [ //IgnoreCase: default true
+      {
+        "Pattern": "firstname/(?<firstName>[^/]+)|lastName/(?<lastname>[^/\\?]+)",
+        "IgnoreCase": true
+      },
+      {
+        "Pattern": "pan/(?<pan>\\d{15,16})"
+      }
+    ],
+    "NamedFormatters": {
+      "PAN14": {
+        "ValuePattern": "^\\d{14}$",
+        "Format": "L6*R4",
+        //IgnoreCase is working with ValuePattern.
+        "IgnoreCase": false,
+        "Enabled": true //default true
+      }
+    },
+    "Rules": {
+      "amount": {
+        "KeyName": "^(transaction)?amount$(?#ignorecase)",
+        "Formatters": [ { "name": "null" } ]
+      },
+      "pan": {
+        "Formatters": [
+          { "Name": "pan" },
+          { "Name": "pan14" } //for test purpose
+        ]
+      },
+      "dataInBytes": { "Formatters": [ { "name": "REDACTED" } ] }, //this works actually
+      "matricula": { "Formatters": [ { "Format": "*" } ] }
+    }
+  }
+}

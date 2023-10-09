@@ -58,7 +58,7 @@
       "ssn": { "Format": "*" },
       "phone": { "Format": "L3R4" },
       "email": {
-        "Format": "L3*@",
+        "Format": "REDACTED",
         "Description": "email is special, shawn@a.cn will be masked as 'sha**@a.cn'"
       },
       "pan": {
