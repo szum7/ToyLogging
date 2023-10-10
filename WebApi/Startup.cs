@@ -102,31 +102,29 @@ namespace WebApi
 
         private static ILoggerFactory initLoggerFactory(IServiceProvider provider)
         {
-            var config = LogManager
-                .LoadConfiguration(@"D:\CodeProjects\ToyLogging\WebApi\nlog.config")
-                .Setup(setupBuilder: x => x.UseMasking());
+            LogManager
+                .Setup((setupBuilder) => setupBuilder
+                .LoadConfigurationFromFile()
+                .UseMasking());
 
-            if (LogManager.Configuration.FindTargetByName("database") is DatabaseTarget target)
+            if (LogManager.Configuration.FindTargetByName("databaseSecure") is DatabaseTarget secureTarget)
             {
                 var profile = provider.GetRequiredService<IOptions<MaskingProfile>>().Value;
-                var rules = profile.Rules;
+                var profileRules = profile.Rules;
 
-                var loggingRule = new LoggingRule("*", NLog.LogLevel.Info, target);
+                var loggingRule = new LoggingRule("*", NLog.LogLevel.Info, secureTarget);
 
-                //foreach (var rule in rules)
-                //{
-                //    loggingRule.Filters.Add(new ConditionBasedFilter()
-                //    {
-                //        Condition = string.Format("contains(message:raw=true, '{{{0}}}')", rule.Key),
-                //        Action = FilterResult.Log
-                //    });
-                //}
+                foreach (var rule in profileRules)
+                {
+                    loggingRule.Filters.Add(new ConditionBasedFilter()
+                    {
+                        Condition = $"contains('${{message:raw=true}}', '{{{rule.Key}}}')",
+                        Action = FilterResult.Log
+                    });
+                }
 
-                //LogManager.Configuration.LoggingRules.Add(loggingRule);
+                LogManager.Configuration.LoggingRules.Add(loggingRule);
             }
-
-            //string logConfigPath = "nlog.config";
-            //LogManager.Configuration = new NLog.Config.XmlLoggingConfiguration(logConfigPath);
 
             return new NLogLoggerFactory();
         }

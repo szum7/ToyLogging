@@ -80,22 +80,22 @@ namespace WebApi
             {
             }
 
-            //LogManager.Setup().SetupSerialization(s =>
-            //    s.RegisterObjectTransformation<object>(o =>
-            //    {
-            //        // TODO LogManager.Configuration.FindTargetByName("database")
+            LogManager.Setup().SetupSerialization(s =>
+                s.RegisterObjectTransformation<object>(o =>
+                {
+                    // TODO LogManager.Configuration.FindTargetByName("database")
 
-            //        var props = o.GetType().GetProperties();
-            //        var propsDict = props.ToDictionary(p => p.Name, p => p.GetValue(o));
+                    var props = o.GetType().GetProperties();
+                    var propsDict = props.ToDictionary(p => p.Name, p => p.GetValue(o));
 
-            //        if (propsDict.TryGetValue("FirstName", out var phone))
-            //            propsDict["FirstName"] = phone?.ToString()?[..2] + "***";
+                    if (propsDict.TryGetValue("FirstName", out var phone))
+                        propsDict["FirstName"] = phone?.ToString()?[..2] + "***";
 
-            //        if (propsDict.TryGetValue("LastName", out var id))
-            //            propsDict["LastName"] = id?.ToString()?[..2] + "***";
+                    if (propsDict.TryGetValue("LastName", out var id))
+                        propsDict["LastName"] = id?.ToString()?[..2] + "***";
 
-            //        return propsDict;
-            //    }));
+                    return propsDict;
+                }));
 
             return new NLogLoggerFactory();
         }

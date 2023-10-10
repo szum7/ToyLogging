@@ -80,8 +80,6 @@ namespace ApiMaskingSample.Controllers
                 .AddKvp(DummyData.Keys.data, DummyData.DataInBytes)
                 .AddKvp(DummyData.Keys.formdata, DummyData.Keys.formdata);
 
-            var s = Encoding.ASCII.GetString(DummyData.DataInBytes);
-
             //application logging. example
             _logger.LogInformation(entry);
 
