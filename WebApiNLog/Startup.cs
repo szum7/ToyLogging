@@ -8,6 +8,7 @@ using NLog.Filters;
 using NLog.Targets;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Numerics;
+using WebApiNLog;
 using WebApiNLog.CustomRender;
 
 namespace WebApi
@@ -43,6 +44,7 @@ namespace WebApi
             services.AddSwaggerGen();
 
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<ICustomLogger, CustomLogger>();
 
             services.AddSingleton(Config);
         }

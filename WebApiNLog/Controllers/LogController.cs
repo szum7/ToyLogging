@@ -12,34 +12,19 @@ namespace WebApiNLog.Controllers
     {
         private readonly ILogger<LogController> _logger;
 
-        public LogController(ILogger<LogController> logger)
+        public LogController(
+            ILogger<LogController> logger)
         {
             _logger = logger;
         }
 
-        [HttpGet(Name = "GenerateLog")]
+        [HttpGet]
         public IActionResult Get()
         {
-            // Needs the @ sign otherwise it writes "WebApiNLog.Models.Customer".
+            var PhoneNo = "23263476";
+            var IdentityNo = "112211221122";
 
-            var customer = new Customer
-            {
-                FirstName = $"Steve",
-                LastName = $"Baker",
-                DOB = new DateTime(1988, 8, 8),
-                SSN = "123456789",
-                PAN = $"45380000{DateTime.Now.Ticks.ToString().Substring(10, 8)}",
-            };
-
-            var FirstName = "James";
-            var LastName = "Walker";
-            var url = "?PhoneNo=12345678&IdentityNo=A33123123";
-
-            //_logger.LogWarning("This is my customer {@Target}. End warning.", customer);
-            //_logger.LogWarning("A single {@FirstName} property", FirstName);
-            //_logger.LogWarning("A multiple {@FirstName} properties {@LastName}", FirstName, LastName);
-
-            _logger.LogWarning("This is an url {url}.", url);
+            _logger.LogWarning("This is my customer {PhoneNo} and {IdentityNo}.", PhoneNo, IdentityNo);
 
             return Ok("Ok.");
         }
