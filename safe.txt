@@ -1,5 +1,37 @@
 
 
+
+        [HttpGet(Name = "GenerateLog")]
+        public IActionResult GenerateLog()
+        {
+            // Needs the @ sign otherwise it writes "WebApiNLog.Models.Customer".
+
+            var customer = new Customer
+            {
+                FirstName = $"Steve",
+                LastName = $"Baker",
+                DOB = new DateTime(1988, 8, 8),
+                SSN = "123456789",
+                PAN = $"45380000{DateTime.Now.Ticks.ToString().Substring(10, 8)}",
+            };
+
+            var FirstName = "James";
+            var LastName = "Walker";
+            var url = "?PhoneNo=12345678&IdentityNo=A33123123";
+
+            //_logger.LogWarning("This is my customer {@Target}. End warning.", customer);
+            //_logger.LogWarning("A single {@FirstName} property", FirstName);
+            //_logger.LogWarning("A multiple {@FirstName} properties {@LastName}", FirstName, LastName);
+
+            _logger.LogWarning("This is an url {url}.", url);
+
+            return Ok("GenerateLog.");
+        }
+
+
+
+
+
             //logger.Warn("This is an email myname@gmail.com");
             //logger.Error(new Exception("My exception message."), "This is an error message with param {param}", valFromCode);
 

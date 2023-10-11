@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Converters;
 using NLog;
@@ -37,8 +38,9 @@ namespace WebApi
             services.AddSwaggerGen();
 
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
+            //services.AddSingleton<CustomLogger>();
+            services.TryAdd(ServiceDescriptor.Singleton(typeof(ICustomLogger<>), typeof(CustomLogger<>)));
 
-            //Config.AddJsonFile("masking.json", optional: false, reloadOnChange: true);
             services.AddSingleton(Config);
 
             services
